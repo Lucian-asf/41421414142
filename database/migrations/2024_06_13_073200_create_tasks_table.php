@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,11 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('due_date');
-            $table->time('start_time')->nullable();
-            $table->time('end_time')->nullable();
             $table->boolean('is_complete')->default(false);
             $table->timestamps();
-    
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
